@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from './services/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
+  cartItem: number;
+  private subscription: Subscription;
+
+  constructor(private cartService: ProductService) {
+  }
 
   ngOnInit() {
+    this.subscription = this.cartService.observableProducts
+      .subscribe(item => {
+        this.cartItem = item.length;
+      }
+
+      )
   }
 
 }
