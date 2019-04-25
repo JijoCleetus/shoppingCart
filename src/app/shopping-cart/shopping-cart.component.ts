@@ -20,7 +20,6 @@ export class ShoppingCartComponent implements OnInit {
       .subscribe(item => {
         this.cartItem = item.length;
       }
-
       )
   }
 

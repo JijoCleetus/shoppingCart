@@ -12,6 +12,12 @@ export class ProductService {
         this.products = [
             { id: '1', name: 'pdt1', price: '100', photo: 'thumb1.jpg' }
         ]
+        // use this method to get the cart details for current user
+        this.getCartDetails();
+    }
+
+    getCartDetails() {
+        //add service call here and delete the below line
         this.observableProducts.next(Object.assign([], this.products));
     }
 
